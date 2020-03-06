@@ -2,6 +2,8 @@
 
 ** by Sebastian Egner
 
+
+
 This repository hosts [[https://srfi.schemers.org/srfi-26/][SRFI 26]]: Notation for Specializing Parameters without Currying, a [[https://srfi.schemers.org/][Scheme Request for Implementation]].
 
 This SRFI is in /final/ status.
