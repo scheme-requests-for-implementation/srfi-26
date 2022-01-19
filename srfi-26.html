@@ -1,23 +1,20 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html>
+<html lang="en">
   <head>
     <title>SRFI 26: Notation for Specializing Parameters without Currying</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/srfi.css" type="text/css" />
+    <link rel="stylesheet" href="https://srfi.schemers.org/srfi.css" type="text/css" />
+    <link href="/favicon.png" rel="icon" sizes="192x192" type="image/png">
   </head>
 
   <body>
 
-<H1>Title</H1>
+<h1><a href="https://srfi.schemers.org/"><img class="srfi-logo" src="https://srfi.schemers.org/srfi-logo.svg" alt="SRFI surfboard logo" /></a>26: Notation for Specializing Parameters without Currying</h1>
 
-Notation for Specializing Parameters without Currying
+<p>by Sebastian Egner</p>
 
-<H1>Author</H1>
-
-Sebastian Egner
-
-<H1>Status</H1>
+<h2>Status</h2>
 
 <p>This SRFI is currently in <em>final</em> status.  Here is <a href="https://srfi.schemers.org/srfi-process.html">an explanation</a> of each status that a SRFI can hold.  To provide input on this SRFI, please send email to <code><a href="mailto:srfi+minus+26+at+srfi+dotschemers+dot+org">srfi-26@<span class="antispam">nospam</span>srfi.schemers.org</a></code>.  To subscribe to the list, follow <a href="https://srfi.schemers.org/srfi-list-subscribe.html">these instructions</a>.  You can access previous messages via the mailing list <a href="https://srfi-email.schemers.org/srfi-26">archive</a>.</p>
 <UL>
@@ -29,7 +26,7 @@ Sebastian Egner
 <LI>Final: 2002-06-14</LI>
 </UL>
 
-<H1>Abstract</H1>
+<h2>Abstract</h2>
 
 When programming in functional style,
 it is frequently necessary to specialize some of the
@@ -109,7 +106,7 @@ or any other processing of the arguments;
 for this it is necessary to write to use a different
 mechanism such as <code>lambda</code>.
 
-<H1>Rationale</H1>
+<h2>Rationale</h2>
 
 A particularly elegant way to deal with specialization is known 
 as <em>currying</em> (Sch&ouml;nfinkel 1924, Curry 1958).
@@ -164,7 +161,7 @@ Here are a few more examples for illustration:
 </TR>
 </TABLE>
 
-<H1>Specification</H1>
+<h2>Specification</h2>
 
 The formal syntax of a specialized expression, in the style of the 
 <a href="http://www.schemers.org/Documents/Standards/R5RS/"><I>Revised^5 Report on the Algorithmic Language Scheme</I></a>:<p>
@@ -216,7 +213,7 @@ In effect, <code>cut</code> evaluates non-slot expressions at the time
 the resulting procedure is called, whereas <code>cute</code> evaluates
 the non-slot expressions at the time the procedure is constructed.<p>
 
-<H1>Implementation</H1>
+<h2>Implementation</h2>
 
 The reference implementation defines the two macros
 <code>cut</code> and <code>cute</code> using macro 
@@ -242,9 +239,9 @@ in this SRFI and signals an error in case something is wrong.
 Passing the tests does not mean a correct implementation.
 
 
-<H1>Design Rationale</H1>
+<h2>Design Rationale</h2>
 
-<H3>Why not real currying/uncurrying?</H3>
+<h3>Why not real currying/uncurrying?</h3>
 
 It is possible in Scheme to implement a macro turning a multi-argument 
 procedure into a nesting of single-argument procedures and back.
@@ -259,8 +256,8 @@ and uncurry again"---which is exactly the purpose of the macro
 The primary relevance of currying/uncurrying in Scheme is to
 teach concepts of combinatory logic.<p>
 
-<H3>Why not a more general mechanism, also allowing permutation,
-omission and duplication of arguments?</H3>
+<h3>Why not a more general mechanism, also allowing permutation,
+omission and duplication of arguments?</h3>
 
 The reason is that I, the author of this SRFI, consider more general 
 mechanisms too dangerous to mix them with the mechanism proposed here.
@@ -273,8 +270,8 @@ Please refer to the discussion threads
 <a href="https://srfi.schemers.org/srfi-26/mail-archive/msg00038.html">"is that useful?"</a> (Walter C. Pelissero), and
 <a href="https://srfi.schemers.org/srfi-26/mail-archive/msg00040.html">"l, the ultimate curry that is not curry"</a> (Al Petrofsky).<p>
 
-<H3>Why are the macro called <code>cut/cute</code> and not 
-[<em>enter your favourite here</em>]?</H3>
+<h3>Why are the macro called <code>cut/cute</code> and not
+[<em>enter your favourite here</em>]?</h3>
 
 Well, the original name proposed for this SRFI was <code>curry</code>
 which immediately stirred some emotions as it does not what is
@@ -304,7 +301,7 @@ The names for the evaluating version of <code>cut</code> that
 have been proposed were <code>cut!</code>, <code>cutlet</code>,
 <code>cut*</code>, and <code>cute</code>.<p>
 
-<H3>Is it possible to implement the SRFI without macros?</H3>
+<h3>Is it possible to implement the SRFI without macros?</h3>
 
 Not really.
 As Stephan Houben has pointed out during the discussion (refer to
@@ -317,8 +314,8 @@ penalty and it is not possible the implement the <code>cut</code>-mechanism
 as a procedure, too.
 As both are needed, we rely on macros to implement the SRFI.
 
-<H3>Why is there another symbol for the rest-slot when lambda-expressions
-use the dotted notation for variable length argument lists?</H3>
+<h3>Why is there another symbol for the rest-slot when lambda-expressions
+use the dotted notation for variable length argument lists?</h3>
 There are two reasons.
 The first one is the existence of a procedural implementation
 of a related mechanism (refer to the previous paragraph).
@@ -328,8 +325,8 @@ is defined to deal with dotted notation, as Felix Winkelmann has pointed out.
 Refer to the discussion threads
 <a href="https://srfi.schemers.org/srfi-26/mail-archive/msg00001.html">"Improper lists in macros [WAS: none]"</a>.<p>
 
-<H3>Why is it impossible to specify when a non-slot is evaluated individually 
-per non-slot?</H3>
+<h3>Why is it impossible to specify when a non-slot is evaluated individually
+per non-slot?</h3>
 <code>Cut</code> evaluates all non-slots at the time the specialized
 procedure is called and <code>cute</code> evaluates all non-slots at
 the time the procedure is being specialized.
@@ -341,7 +338,7 @@ If a piece of code really depends on the distinction, it might be
 better to make this explicit through <code>let</code> and 
 <code>lambda</code>.<p>
 
-<H3>Why is <code>(cut if &lt;&gt; 0 1)</code> etc. illegal?</H3>
+<h3>Why is <code>(cut if &lt;&gt; 0 1)</code> etc. illegal?</h3>
 
 It is specified that a <code>&lt;slot-or-expr&gt;</code> must be
 either the slot symbol or an <code>&lt;expression&gt;</code> in the sense
@@ -354,7 +351,7 @@ restricted in this sense is the difficulty of defining
 the meaning of such generalized expressions.
 Please refer to the discussion archive for details.
 
-<H1>Acknowledgements</H1>
+<h2>Acknowledgements</h2>
 
 An important part of this SRFI is based on the contribution
 of other people, mostly through the discussion archive.
@@ -362,7 +359,7 @@ In particular, the semantics and the design rationale have
 been greatly improved in the course of the discussion.
 I would like to thank all who have contributed.
 
-<H1>Copyright</H1>
+<h2>Copyright</h2>
 <p>Copyright (C) Sebastian Egner (2002). All Rights Reserved.</p>
 
 <p>
