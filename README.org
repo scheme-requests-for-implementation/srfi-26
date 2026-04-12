@@ -1,3 +1,6 @@
+
+# SPDX-FileCopyrightText: 2026 Arthur A. Gleckler
+# SPDX-License-Identifier: MIT
 * SRFI 26: Notation for Specializing Parameters without Currying
 
 ** by Sebastian Egner
@@ -11,14 +14,11 @@ library-name: cut
 This repository hosts [[https://srfi.schemers.org/srfi-26/][SRFI 26]]: Notation for Specializing Parameters without Currying, a [[https://srfi.schemers.org/][Scheme Request for Implementation]].
 
 This SRFI is in /final/ status.
-
-See also [[https://srfi.schemers.org/srfi-156/][SRFI 156: Syntactic combiners for binary predicates]] and [[https://srfi.schemers.org/srfi-232/][SRFI 232: Flexible curried procedures]].
-
+See also [[/srfi-156/][SRFI 156: Syntactic combiners for binary predicates]] and [[/srfi-232/][SRFI 232: Flexible curried procedures]].
 The full documentation for this SRFI can be found in the [[https://srfi.schemers.org/srfi-26/srfi-26.html][SRFI Document]].
 
 If you'd like to participate in the discussion of this SRFI, or report issues with it, please [[https://srfi.schemers.org/srfi-26/][join the SRFI-26 mailing list]] and send your message there.
 
 Thank you.
-
 
 [[mailto:srfi-editors@srfi.schemers.org][The SRFI Editors]]
